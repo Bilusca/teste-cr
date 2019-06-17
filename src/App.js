@@ -6,6 +6,7 @@ import { Container, Content, Aside } from "./styles/components";
 
 import Topbar from "./components/topbar";
 import GamesList from "./components/games-list";
+import ShoppingCart from "./components/shopping-cart/index.js";
 
 class App extends Component {
   componentDidMount() {
@@ -21,7 +22,9 @@ class App extends Component {
             <Topbar />
             <GamesList data={MOCKED_DATA} />
           </Content>
-          <Aside />
+          <Aside>
+            <ShoppingCart />
+          </Aside>
         </Container>
       </Fragment>
     );

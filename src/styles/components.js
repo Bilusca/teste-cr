@@ -16,5 +16,4 @@ export const Content = styled.div`
 
 export const Aside = styled.aside`
   flex: 1;
-  background: blue;
 `;
