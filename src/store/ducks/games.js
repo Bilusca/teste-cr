@@ -4,8 +4,7 @@ import MOCKED_DATA from "../../products.json";
  * TYPES
  */
 export const Types = {
-  CHANGE_FILTER: "@games/CHANGE_FILTER",
-  RESET_FILTER: "@games/RESET_FILTER"
+  CHANGE_FILTER: "@games/CHANGE_FILTER"
 };
 
 /**
@@ -23,24 +22,26 @@ export default function gamesStore(state = INITIAL_STATE, action) {
 
       return {
         games: state.games.sort((gameA, gameB) => {
+          let compare;
+
           if (filter === "score") {
             if (gameA[filter] < gameB[filter]) {
-              return 1;
+              compare = 1;
             } else if (gameA[filter] > gameB[filter]) {
-              return -1;
+              compare = -1;
             }
           } else {
             if (gameA[filter] > gameB[filter]) {
-              return 1;
+              compare = 1;
             } else if (gameA[filter] < gameB[filter]) {
-              return -1;
+              compare = -1;
             }
           }
+
+          return compare;
         }),
         filter: action.payload.filter
       };
-    case Types.RESET_FILTER:
-      return INITIAL_STATE;
     default:
       return state;
   }
@@ -54,9 +55,6 @@ export const actionCreators = {
     type: Types.CHANGE_FILTER,
     payload: {
       filter
-    },
-    resetFilter: () => ({
-      type: Types.RESET_FILTER
-    })
+    }
   })
 };

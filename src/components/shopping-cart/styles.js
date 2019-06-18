@@ -13,10 +13,18 @@ export const Container = styled.div`
 
 export const CartTitle = styled.div`
   width: 100%;
-  span {
+  margin-bottom: 20px;
+
+  strong {
     font-size: 18px;
     font-weight: bold;
     color: #363636;
+  }
+
+  span {
+    font-size: 14px;
+    font-weight: normal;
+    color: #7f7575;
   }
 `;
 
@@ -37,4 +45,8 @@ export const NoItens = styled.div`
     font-size: 14px;
     font-weight: normal;
   }
+`;
+
+export const ItemsList = styled.div`
+  width: 100%;
 `;

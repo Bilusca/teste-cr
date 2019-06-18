@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Container, Game } from "./styles";
+import { Container } from "./styles";
+import Game from "../game";
 
 import { connect } from "react-redux";
 
@@ -12,13 +13,7 @@ class GamesList extends Component {
     return (
       <Container>
         {games.map(game => (
-          <Game key={game.id}>
-            <div>
-              <img src={require(`../../assets/${game.image}`)} alt="" />
-            </div>
-            <p>{game.name}</p>
-            <p>R$ {game.price.toFixed(2)}</p>
-          </Game>
+          <Game key={game.id} game={game} />
         ))}
       </Container>
     );

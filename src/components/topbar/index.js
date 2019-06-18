@@ -6,18 +6,27 @@ import { bindActionCreators } from "redux";
 import { actionCreators as GameCreators } from "../../store/ducks/games";
 
 class Topbar extends Component {
-  changeFilter(e) {
+  state = {
+    filter: "score"
+  };
+
+  componentDidMount() {
+    this.changeFilter(this.state.filter);
+  }
+
+  changeFilter(value) {
     const { changeFilter } = this.props;
 
-    changeFilter(e.target.value);
+    this.setState({ filter: value });
+
+    changeFilter(value);
   }
 
   render() {
     return (
       <Header>
         <h3>Games</h3>
-        <select onChange={e => this.changeFilter(e)}>
-          <option value="">Filtre sua busca</option>
+        <select onChange={e => this.changeFilter(e.target.value)}>
           <option value="score">Mais populares</option>
           <option value="price">Preço</option>
           <option value="name">Ordem alfabética</option>
