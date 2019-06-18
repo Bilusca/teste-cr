@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from "react";
-import MOCKED_DATA from "./products.json";
 
 import Global from "./styles/global";
 import { Container, Content, Aside } from "./styles/components";
@@ -9,10 +8,6 @@ import GamesList from "./components/games-list";
 import ShoppingCart from "./components/shopping-cart/index.js";
 
 class App extends Component {
-  componentDidMount() {
-    console.dir(MOCKED_DATA);
-  }
-
   render() {
     return (
       <Fragment>
@@ -20,7 +15,7 @@ class App extends Component {
         <Container>
           <Content>
             <Topbar />
-            <GamesList data={MOCKED_DATA} />
+            <GamesList />
           </Content>
           <Aside>
             <ShoppingCart />

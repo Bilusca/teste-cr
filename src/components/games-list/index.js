@@ -1,15 +1,17 @@
 import React, { Component } from "react";
 import { Container, Game } from "./styles";
 
-class GamesList extends Component {
-  state = {
-    games: []
-  };
+import { connect } from "react-redux";
 
+class GamesList extends Component {
   render() {
+    const {
+      gamesStore: { games }
+    } = this.props;
+
     return (
       <Container>
-        {this.props.data.map(game => (
+        {games.map(game => (
           <Game key={game.id}>
             <div>
               <img src={require(`../../assets/${game.image}`)} alt="" />
@@ -23,4 +25,8 @@ class GamesList extends Component {
   }
 }
 
-export default GamesList;
+const mapStateToProps = state => ({
+  gamesStore: state.gamesStore
+});
+
+export default connect(mapStateToProps)(GamesList);
