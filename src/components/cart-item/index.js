@@ -1,14 +1,18 @@
 import React, { Component } from "react";
-import { Wrapper } from "./styles";
+import { Wrapper, ImageBox, ItemInfo } from "./styles";
 
 class CartItem extends Component {
   render() {
     const { game } = this.props;
     return (
       <Wrapper>
-        <div>
+        <ImageBox>
           <img src={require(`../../assets/${game.image}`)} alt={game.name} />
-        </div>
+        </ImageBox>
+        <ItemInfo>
+          <p>{game.name}</p>
+          <p>R$ {game.price.toFixed(2)}</p>
+        </ItemInfo>
       </Wrapper>
     );
   }
