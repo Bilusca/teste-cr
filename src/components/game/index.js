@@ -7,20 +7,24 @@ import { actionCreators as CartCreators } from "../../store/ducks/cart";
 
 import { toast } from "react-toastify";
 
+import { formatBRLMoney } from "../../services/format-brl";
+
 class Game extends Component {
   state = {
     hovered: false
   };
 
-  addItemOnCart(item) {
+  addItemOnCart(game) {
     const { addItemOnCart, cart } = this.props;
 
-    if (cart.items.findIndex(i => i.id === item.id) !== -1) {
-      return toast.warn("Este item já foi adicionado.");
+    if (cart.items.findIndex(i => i.id === game.id) !== -1) {
+      return toast.warn(
+        `O jogo ${game.name} já foi adicionado ao seu carrinho.`
+      );
     }
 
-    addItemOnCart(item);
-    toast.success("Item adicionado com sucesso.");
+    addItemOnCart(game);
+    toast.success(`O jogo ${game.name} foi adicionado com sucesso.`);
   }
 
   render() {
@@ -43,7 +47,7 @@ class Game extends Component {
         ) : (
           <InfoAndPrices>
             <p>{game.name}</p>
-            <p>R$ {game.price.toFixed(2)}</p>
+            <p>{formatBRLMoney(game.price)}</p>
           </InfoAndPrices>
         )}
       </Wrapper>

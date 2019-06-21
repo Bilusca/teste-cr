@@ -5,6 +5,7 @@ export const Wrapper = styled.div`
   width: 100%;
   margin-bottom: 20px;
   display: flex;
+  cursor: pointer;
 `;
 
 export const ImageBox = styled.div`
@@ -36,5 +37,29 @@ export const ItemInfo = styled.div`
       font-weight: bold;
       margin-top: 2px;
     }
+  }
+`;
+
+export const RemoveItem = styled.div`
+  align-self: flex-end;
+  height: 100%;
+  width: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 12px;
+    font-weight: bold;
+
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #54a3ff;
   }
 `;

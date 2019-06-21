@@ -8,7 +8,8 @@ import { Container, Content, Aside } from "./styles/components";
 
 import Topbar from "./components/topbar";
 import GamesList from "./components/games-list";
-import ShoppingCart from "./components/shopping-cart/index.js";
+import ShoppingCart from "./components/shopping-cart";
+import Menu from "./components/menu";
 
 class App extends Component {
   render() {
@@ -24,7 +25,8 @@ class App extends Component {
             <ShoppingCart />
           </Aside>
         </Container>
-        <ToastContainer autoClose={3000} />
+        <Menu />
+        <ToastContainer autoClose={5000} />
       </Fragment>
     );
   }

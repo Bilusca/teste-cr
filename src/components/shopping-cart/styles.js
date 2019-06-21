@@ -50,3 +50,54 @@ export const NoItens = styled.div`
 export const ItemsList = styled.div`
   width: 100%;
 `;
+
+export const Totals = styled.div`
+  align-self: flex-end;
+
+  width: 100%;
+  margin-top: 30px;
+
+  div {
+    width: 100%;
+    margin-bottom: 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    span {
+      color: #7f7575;
+      font-size: 14px;
+
+      &:last-child {
+        color: #423b3b;
+        font-weight: bold;
+        font-size: ${props => (props.total ? "20px" : "16px")};
+      }
+    }
+  }
+
+  button {
+    width: 100%;
+    height: 50px;
+    background: #54a3ff;
+    border-radius: 3px;
+    cursor: pointer;
+    border: 0;
+    outline: 0;
+
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+
+    transition: 0.3s;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+`;
