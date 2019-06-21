@@ -1,4 +1,4 @@
-# Consulta Jogos
+# GAME SHOP
 
 Uma aplicação de listagem de jogos de vídeo game, buscando cumprir os requisitos listados [aqui](https://github.com/ConsultaRemedios/frontend-challenge)
 
