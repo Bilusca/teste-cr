@@ -15,16 +15,42 @@ export const CartTitle = styled.div`
   width: 100%;
   margin-bottom: 20px;
 
+  display: flex;
+  align-items: center;
+
   strong {
     font-size: 18px;
     font-weight: bold;
     color: #363636;
+    margin-right: 3px;
   }
 
   span {
     font-size: 14px;
     font-weight: normal;
     color: #7f7575;
+  }
+
+  button {
+    display: none;
+    background: none;
+    border: 1px solid #e1e1e1;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    outline: none;
+    margin-right: 10px;
+
+    color: #e1e1e1;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  @media screen and (max-width: 768px) {
+    button {
+      display: block;
+    }
   }
 `;
 

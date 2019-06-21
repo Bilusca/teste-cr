@@ -5,16 +5,28 @@ import CartIcon from "../../assets/cart-icon.svg";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { actionCreators as CartCreators } from "../../store/ducks/cart";
+import { actionCreators as MenuCreators } from "../../store/ducks/menu";
 import CartItem from "../cart-item";
 import { formatBRLMoney } from "../../services/format-brl";
 
+import { toast } from "react-toastify";
+
 class ShoppingCart extends Component {
+  finishCart() {
+    const { resetCart, closeMenu } = this.props;
+
+    resetCart();
+    closeMenu();
+    toast.success(`Sua compra foi finalizada com sucesso.`);
+  }
+
   render() {
-    const { cart } = this.props;
+    const { cart, closeMenu } = this.props;
 
     return (
       <Container>
         <CartTitle>
+          <button onClick={() => closeMenu()}>X</button>
           <strong>Carrinho</strong>{" "}
           {cart.items.length > 0 && <span>({cart.items.length} itens)</span>}
         </CartTitle>
@@ -40,7 +52,9 @@ class ShoppingCart extends Component {
                   {formatBRLMoney(cart.total + cart.shipping)}
                 </span>
               </div>
-              <button>finalizar compra</button>
+              <button onClick={() => this.finishCart()}>
+                finalizar compra
+              </button>
             </Totals>
           </Fragment>
         ) : (
@@ -61,7 +75,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch =>
-  bindActionCreators(CartCreators, dispatch);
+  bindActionCreators({ ...CartCreators, ...MenuCreators }, dispatch);
 
 export default connect(
   mapStateToProps,

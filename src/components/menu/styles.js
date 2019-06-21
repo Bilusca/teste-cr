@@ -10,16 +10,9 @@ export const Wrapper = styled.div`
   transition: transform 0.3s cubic-bezier(0, 0.52, 0, 1);
   overflow: scroll;
   z-index: 1000;
-  &.show {
-    transform: translate3d(0vw, 0, 0);
-    overflow: hidden;
-  }
-  &.hide {
-    transform: translate3d(100vw, 0, 0);
-  }
 
   @media screen and (max-width: 768px) {
-    display: flex;
+    display: ${props => (props.open ? "flex" : "none")};
     flex: 1;
   }
 `;

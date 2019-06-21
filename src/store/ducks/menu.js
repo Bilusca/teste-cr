@@ -17,11 +17,11 @@ export default function menuStore(state = INITIAL_STATE, action) {
   switch (action.type) {
     case Types.OPEN_MENU:
       return {
-        open: action.payload.open
+        open: true
       };
     case Types.CLOSE_MENU:
       return {
-        open: action.payload.open
+        open: false
       };
     default:
       return state;
@@ -32,16 +32,10 @@ export default function menuStore(state = INITIAL_STATE, action) {
  * ACTION CREATORS
  */
 export const actionCreators = {
-  openMenu: open => ({
-    type: Types.CHANGE_FILTER,
-    payload: {
-      open
-    }
+  openMenu: () => ({
+    type: Types.OPEN_MENU
   }),
-  closeMenu: open => ({
-    type: Types.CHANGE_FILTER,
-    payload: {
-      open
-    }
+  closeMenu: () => ({
+    type: Types.CLOSE_MENU
   })
 };

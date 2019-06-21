@@ -29,10 +29,12 @@ class Topbar extends Component {
 
     return (
       <Header>
-        <button onClick={() => openMenu(true)}>
-          <img src={CartIcon} alt="Ícone do carrinho de compras" />
+        <div>
           {items > 0 && <span>{items}</span>}
-        </button>
+          <button onClick={() => openMenu()}>
+            <img src={CartIcon} alt="Ícone do carrinho de compras" />
+          </button>
+        </div>
         <h3>Games</h3>
         <select onChange={e => this.changeFilter(e.target.value)}>
           <option value="score">Mais populares</option>

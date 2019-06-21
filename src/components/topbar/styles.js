@@ -7,15 +7,26 @@ export const Header = styled.header`
   justify-content: space-between;
   margin-bottom: 40px;
 
-  button {
+  div {
     display: none;
-    background: none;
-    border: 1px solid #e1e1e1;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    cursor: pointer;
-    outline: none;
+    button {
+      display: none;
+      background: none;
+      border: 1px solid #e1e1e1;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+      outline: none;
+
+      align-items: center;
+      justify-content: center;
+
+      img {
+        width: 70%;
+        height: 70%;
+      }
+    }
 
     span {
       position: absolute;
@@ -27,11 +38,6 @@ export const Header = styled.header`
       border-radius: 50%;
       text-align: center;
       color: #fff;
-    }
-
-    img {
-      width: 70%;
-      height: 70%;
     }
   }
 
@@ -55,8 +61,11 @@ export const Header = styled.header`
     flex-direction: column;
     margin-bottom: 20px;
 
-    button {
-      display: flex;
+    div {
+      display: block;
+      button {
+        display: flex;
+      }
     }
   }
 `;

@@ -3,7 +3,8 @@
  */
 export const Types = {
   ADD_ITEM: "@cart/ADD_ITEM",
-  REMOVE_ITEM: "@cart/REMOVE_ITEM"
+  REMOVE_ITEM: "@cart/REMOVE_ITEM",
+  RESET_CART: "@cart/RESET_CART"
 };
 
 /**
@@ -48,6 +49,10 @@ export default function cartStore(state = INITIAL_STATE, action) {
             : state.items.filter(game => game.id !== action.payload.item.id)
                 .length * 10
       };
+    case Types.RESET_CART:
+      return {
+        ...INITIAL_STATE
+      };
     default:
       return state;
   }
@@ -68,5 +73,8 @@ export const actionCreators = {
     payload: {
       item
     }
+  }),
+  resetCart: () => ({
+    type: Types.RESET_CART
   })
 };
